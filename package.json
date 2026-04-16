@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "node --env-file=.env --import tsx src/scripts/seed.ts",
-    "seed:clean": "node --env-file=.env --import tsx src/scripts/seed.ts --clean",
-    "seed:auto": "node --env-file=.env --import tsx src/scripts/auto-seed.ts",
-    "fix:orphans": "node --env-file=.env --import tsx src/scripts/fix-orphans.ts"
+    "seed": "node --import tsx src/scripts/seed.ts",
+    "seed:clean": "node --import tsx src/scripts/seed.ts --clean",
+    "seed:auto": "node --import tsx src/scripts/auto-seed.ts",
+    "fix:orphans": "node --import tsx src/scripts/fix-orphans.ts",
+    "seed:local": "node --env-file=.env --import tsx src/scripts/seed.ts",
+    "seed:local:clean": "node --env-file=.env --import tsx src/scripts/seed.ts --clean"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.43.0",
