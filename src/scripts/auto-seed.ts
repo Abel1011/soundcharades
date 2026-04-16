@@ -15,6 +15,7 @@
 
 import { getCategoryCounts } from "../lib/turbopuffer";
 import { execFileSync } from "node:child_process";
+import * as fs from "node:fs";
 import * as path from "node:path";
 
 const CATEGORIES = ["movies", "series", "videogames", "countries", "food", "music"] as const;
@@ -43,20 +44,18 @@ async function autoSeed() {
 
   // Run the seed script as a child process
   const seedScript = path.join(process.cwd(), "src", "scripts", "seed.ts");
+  const nodeArgs = [
+    // Only use --env-file if .env exists (local dev), skip in containers
+    ...(fs.existsSync(path.join(process.cwd(), ".env")) ? ["--env-file=.env"] : []),
+    "--import",
+    "tsx",
+    seedScript,
+    `--category=${category}`,
+    `--difficulty=${difficulty}`,
+    "--count=4",
+  ];
   try {
-    execFileSync(
-      "node",
-      [
-        "--env-file=.env",
-        "--import",
-        "tsx",
-        seedScript,
-        `--category=${category}`,
-        `--difficulty=${difficulty}`,
-        "--count=4",
-      ],
-      { stdio: "inherit", cwd: process.cwd() },
-    );
+    execFileSync("node", nodeArgs, { stdio: "inherit", cwd: process.cwd() });
     console.log("\n🤖 Auto-seed complete!\n");
   } catch (err) {
     console.error("\n❌ Auto-seed failed:", (err as Error).message);
