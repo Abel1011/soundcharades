@@ -9,7 +9,8 @@
     "lint": "eslint",
     "seed": "node --env-file=.env --import tsx src/scripts/seed.ts",
     "seed:clean": "node --env-file=.env --import tsx src/scripts/seed.ts --clean",
-    "seed:auto": "node --env-file=.env --import tsx src/scripts/auto-seed.ts"
+    "seed:auto": "node --env-file=.env --import tsx src/scripts/auto-seed.ts",
+    "fix:orphans": "node --env-file=.env --import tsx src/scripts/fix-orphans.ts"
   },
   "dependencies": {
     "@elevenlabs/elevenlabs-js": "^2.43.0",

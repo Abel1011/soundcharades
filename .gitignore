@@ -45,3 +45,6 @@ next-env.d.ts
 .github/
 *.md
 !README.md
+
+# generated audio (large binary files)
+public/audio/
