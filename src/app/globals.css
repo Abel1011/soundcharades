@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+  /* Base — warm butter cream */
+  --surface-base: #FEF7EC;
+  --surface-card: #FFFFFF;
+  --surface-raised: #FFF5E1;
+  --surface-overlay: #FEF0D6;
+
+  /* Primary — deep ocean teal */
+  --primary: #0E7490;
+  --primary-hover: #0891B2;
+  --primary-muted: rgba(14, 116, 144, 0.08);
+  --primary-light: #ECFEFF;
+
+
+  /* Pop — vivid coral-red */
+  --pop: #F43F5E;
+  --pop-hover: #FB7185;
+  --pop-muted: rgba(244, 63, 94, 0.08);
+  --pop-light: #FFF1F2;
+
+  /* Fresh — bright teal */
+  --fresh: #0D9488;
+  --fresh-hover: #14B8A6;
+  --fresh-muted: rgba(13, 148, 136, 0.08);
+  --fresh-light: #F0FDFA;
+
+  /* Sunny — warm yellow */
+  --sunny: #F59E0B;
+  --sunny-muted: rgba(245, 158, 11, 0.08);
+  --sunny-light: #FFFBEB;
+
+  /* Text — warm darks */
+  --text-primary: #1C1917;
+  --text-secondary: #78716C;
+  --text-muted: #A8A29E;
+
+  /* Borders */
+  --border: #E7E5E4;
+  --border-active: #D6D3D1;
+
+  /* Category pill colors */
+  --cat-1: #0E7490;
+  --cat-2: #F43F5E;
+  --cat-3: #0D9488;
+  --cat-4: #F59E0B;
+  --cat-5: #2563EB;
+  --cat-6: #DB2777;
+}
+
+@theme inline {
+  --color-surface-base: var(--surface-base);
+  --color-surface-card: var(--surface-card);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-overlay: var(--surface-overlay);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-light: var(--primary-light);
+
+  --color-pop: var(--pop);
+  --color-pop-hover: var(--pop-hover);
+  --color-pop-muted: var(--pop-muted);
+  --color-pop-light: var(--pop-light);
+
+  --color-fresh: var(--fresh);
+  --color-fresh-hover: var(--fresh-hover);
+  --color-fresh-muted: var(--fresh-muted);
+  --color-fresh-light: var(--fresh-light);
+
+  --color-sunny: var(--sunny);
+  --color-sunny-muted: var(--sunny-muted);
+  --color-sunny-light: var(--sunny-light);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-active: var(--border-active);
+
+  --color-cat-1: var(--cat-1);
+  --color-cat-2: var(--cat-2);
+  --color-cat-3: var(--cat-3);
+  --color-cat-4: var(--cat-4);
+  --color-cat-5: var(--cat-5);
+  --color-cat-6: var(--cat-6);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-outfit);
+}
+
+body {
+  background: var(--surface-base);
+  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Chunky colored shadow utility */
+.shadow-chunky-primary {
+  box-shadow: 6px 6px 0px 0px var(--primary);
+}
+.shadow-chunky-pop {
+  box-shadow: 6px 6px 0px 0px var(--pop);
+}
+.shadow-chunky-fresh {
+  box-shadow: 6px 6px 0px 0px var(--fresh);
+}
+.shadow-chunky-sunny {
+  box-shadow: 6px 6px 0px 0px var(--sunny);
+}
+
+/* Bounce keyframe for mascot */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Wiggle for interactive elements */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+.hover\:animate-wiggle:hover {
+  animation: wiggle 0.4s ease-in-out;
+}
+
+/* Pulse ring for countdown */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1s ease-out infinite;
+}
+
+/* Score pop animation */
+@keyframes score-pop {
+  0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.animate-score-pop {
+  animation: score-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Timer urgency pulse */
+@keyframes urgent-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-urgent {
+  animation: urgent-pulse 0.5s ease-in-out infinite;
+}
